@@ -47,7 +47,8 @@ conductor/
 ├── conductor-graph        # Layer 2: Graph components
 ├── conductor-executor     # Layer 3: Execution engine
 ├── conductor-builder      # Layer 4: Builder API
-└── conductor-api          # Layer 5: REST API + UI
+├── conductor-api          # Layer 5: REST API
+└── conductor-ui           # Layer 5: WASM Frontend (Leptos)
 ```
 
 ## 🚀 Quick Start
@@ -55,7 +56,8 @@ conductor/
 ### Prerequisites
 
 - Rust 1.75+
-- Ollama (for local LLM testing)
+- Trunk (for WASM frontend): `cargo install trunk`
+- Ollama (for local LLM testing, optional)
 
 ### Installation
 
@@ -99,6 +101,33 @@ async fn main() -> anyhow::Result<()> {
     Ok(())
 }
 ```
+
+### Running the API Server
+
+```bash
+# Start the REST API server (Layer 5)
+cd crates/conductor-api
+cargo run
+
+# Server will be available at http://127.0.0.1:3000
+# API endpoints: /templates, /sessions, /workflows
+```
+
+### Running the Web UI
+
+```bash
+# In a separate terminal, start the frontend (Layer 5)
+cd crates/conductor-ui
+trunk serve
+
+# UI will be available at http://127.0.0.1:8080
+# Make sure the API server is running on port 3000
+```
+
+The Web UI provides:
+- **Templates Page**: Browse and create workflow sessions from templates
+- **Sessions Page**: View and manage active workflow sessions
+- **Execution Page**: Execute workflows with custom state and view results in real-time
 
 ## 🧪 Testing
 
@@ -146,6 +175,8 @@ cargo test --package conductor-primitives
   - [x] CORS support
   - [x] Demo workflow templates (counter, echo, math)
   - [x] Complete API documentation
+  - [x] Leptos WASM Frontend (templates, sessions, execution UI)
+  - [x] Responsive web interface with real-time updates
 
 ## 🎨 Design Principles
 
@@ -185,7 +216,8 @@ cargo test --package conductor-primitives
 - **HTTP Client**: reqwest (with rustls)
 - **Database**: rusqlite (embedded)
 - **Serialization**: serde + serde_json
-- **Frontend**: Leptos 2.0 (WASM)
+- **Frontend**: Leptos 0.7 (WASM, CSR)
+- **Build Tool**: Trunk (WASM bundler)
 
 ## 📝 License
 

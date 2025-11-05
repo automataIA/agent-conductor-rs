@@ -28,3 +28,5 @@ Thumbs.db
 frontend/dist/
 frontend/pkg/
 node_modules/
+crates/conductor-ui/dist/
+crates/conductor-ui/pkg/

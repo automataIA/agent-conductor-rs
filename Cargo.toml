@@ -6,6 +6,7 @@ members = [
     "crates/conductor-executor",
     "crates/conductor-builder",
     "crates/conductor-api",
+    "crates/conductor-ui",
 ]
 
 [workspace.package]
