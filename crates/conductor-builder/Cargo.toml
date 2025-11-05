@@ -1,0 +1,12 @@
+[package]
+name = "conductor-builder"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+conductor-primitives = { path = "../conductor-primitives" }
+conductor-graph = { path = "../conductor-graph" }
+conductor-executor = { path = "../conductor-executor" }
+anyhow.workspace = true

@@ -1,0 +1,13 @@
+[package]
+name = "conductor-executor"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+conductor-primitives = { path = "../conductor-primitives" }
+conductor-graph = { path = "../conductor-graph" }
+serde.workspace = true
+rusqlite.workspace = true
+anyhow.workspace = true

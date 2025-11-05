@@ -1,0 +1,51 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/conductor-primitives",
+    "crates/conductor-graph",
+    "crates/conductor-executor",
+    "crates/conductor-builder",
+    "crates/conductor-api",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Agent Conductor Contributors"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/automataIA/agent-conductor-rs"
+
+[workspace.dependencies]
+# Core async runtime - minimal
+smol = "2.0"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# HTTP client - minimal features
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+# Database
+rusqlite = { version = "0.32", features = ["bundled"] }
+
+# Web framework
+axum = "0.7"
+tower = "0.5"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+
+# Utilities
+anyhow = "1.0"
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+# Async utilities
+async-trait = "0.1"
+futures = "0.3"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

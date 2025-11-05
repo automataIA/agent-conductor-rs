@@ -1,0 +1,12 @@
+[package]
+name = "conductor-graph"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+conductor-primitives = { path = "../conductor-primitives" }
+serde.workspace = true
+anyhow.workspace = true
+async-trait.workspace = true

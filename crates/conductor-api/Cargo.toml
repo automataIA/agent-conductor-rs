@@ -1,0 +1,19 @@
+[package]
+name = "conductor-api"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+conductor-primitives = { path = "../conductor-primitives" }
+conductor-executor = { path = "../conductor-executor" }
+conductor-builder = { path = "../conductor-builder" }
+axum.workspace = true
+tokio.workspace = true
+tower.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
