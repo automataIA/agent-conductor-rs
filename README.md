@@ -29,9 +29,10 @@ The project follows a 5-layer bottom-up architecture:
 - `Checkpointer`: SQLite-based persistence for resumability
 - `Router`: Edge evaluation and next-node determination
 
-### Layer 4: Orchestration (Week 4)
-- `GraphBuilder`: Fluent API for graph construction
-- `WorkflowManager`: Multi-turn session management
+### Layer 4: Orchestration ✅ **COMPLETED**
+- `GraphBuilder`: Fluent API for graph construction with validation
+- `WorkflowManager`: Template and session management
+- `WorkflowTemplate`: Reusable workflow configurations
 
 ### Layer 5: API & UI (Week 5)
 - REST API (Axum)
@@ -132,7 +133,13 @@ cargo test --package conductor-primitives
   - [x] Event system for monitoring
   - [x] Resume from checkpoint functionality
   - [x] Examples (simple_executor, complete_workflow)
-- [ ] **Week 4**: Layer 4 - Orchestration
+- [x] **Week 4**: Layer 4 - Orchestration
+  - [x] GraphBuilder with fluent API
+  - [x] Graph validation (duplicate nodes, missing references)
+  - [x] WorkflowManager for session management
+  - [x] WorkflowTemplate for reusable workflows
+  - [x] Multi-session support
+  - [x] Examples (fluent_api_demo, workflow_manager_demo)
 - [ ] **Week 5**: Layer 5 - API & Frontend
 
 ## 🎨 Design Principles

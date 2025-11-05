@@ -10,3 +10,8 @@ conductor-primitives = { path = "../conductor-primitives" }
 conductor-graph = { path = "../conductor-graph" }
 conductor-executor = { path = "../conductor-executor" }
 anyhow.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util"] }
+serde_json.workspace = true
