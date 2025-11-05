@@ -19,10 +19,10 @@ The project follows a 5-layer bottom-up architecture:
 - `State`: Immutable state management with reducers
 - `LlmClient`: HTTP client for LLM APIs
 
-### Layer 2: Graph Core (Week 2)
-- `Node`: Async functions with state transformations
+### Layer 2: Graph Core ✅ **COMPLETED**
+- `Node`: Async functions with state transformations (LlmNode, FunctionNode)
 - `Edge`: Required and conditional edges
-- `Reducer`: State merge logic
+- `Condition`: Routing logic (BoolCondition, FunctionCondition)
 
 ### Layer 3: Execution Engine (Week 3)
 - `GraphExecutor`: Message-passing execution model
@@ -120,7 +120,11 @@ cargo test --package conductor-primitives
   - [x] Message types
   - [x] State management with reducers
   - [x] LLM client (OpenAI-compatible)
-- [ ] **Week 2**: Layer 2 - Graph Core
+- [x] **Week 2**: Layer 2 - Graph Core
+  - [x] Node trait + implementations (LlmNode, FunctionNode)
+  - [x] Edge types (Required, Conditional)
+  - [x] Condition trait + implementations (BoolCondition, FunctionCondition)
+  - [x] Comprehensive examples (simple_chain, multi_agent_workflow)
 - [ ] **Week 3**: Layer 3 - Execution Engine
 - [ ] **Week 4**: Layer 4 - Orchestration
 - [ ] **Week 5**: Layer 5 - API & Frontend

@@ -8,5 +8,10 @@ license.workspace = true
 [dependencies]
 conductor-primitives = { path = "../conductor-primitives" }
 serde.workspace = true
+serde_json.workspace = true
 anyhow.workspace = true
+thiserror.workspace = true
 async-trait.workspace = true
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util"] }
