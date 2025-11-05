@@ -24,10 +24,10 @@ The project follows a 5-layer bottom-up architecture:
 - `Edge`: Required and conditional edges
 - `Condition`: Routing logic (BoolCondition, FunctionCondition)
 
-### Layer 3: Execution Engine (Week 3)
-- `GraphExecutor`: Message-passing execution model
-- `Checkpointer`: SQLite-based persistence
-- `Router`: Conditional routing logic
+### Layer 3: Execution Engine ✅ **COMPLETED**
+- `GraphExecutor`: Message-passing execution model with events
+- `Checkpointer`: SQLite-based persistence for resumability
+- `Router`: Edge evaluation and next-node determination
 
 ### Layer 4: Orchestration (Week 4)
 - `GraphBuilder`: Fluent API for graph construction
@@ -125,7 +125,13 @@ cargo test --package conductor-primitives
   - [x] Edge types (Required, Conditional)
   - [x] Condition trait + implementations (BoolCondition, FunctionCondition)
   - [x] Comprehensive examples (simple_chain, multi_agent_workflow)
-- [ ] **Week 3**: Layer 3 - Execution Engine
+- [x] **Week 3**: Layer 3 - Execution Engine
+  - [x] GraphExecutor with message passing algorithm
+  - [x] Checkpointer with SQLite persistence
+  - [x] Router for edge evaluation
+  - [x] Event system for monitoring
+  - [x] Resume from checkpoint functionality
+  - [x] Examples (simple_executor, complete_workflow)
 - [ ] **Week 4**: Layer 4 - Orchestration
 - [ ] **Week 5**: Layer 5 - API & Frontend
 
