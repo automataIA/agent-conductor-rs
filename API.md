@@ -311,9 +311,29 @@ CORS is enabled for all origins in development. Configure appropriately for prod
 
 ---
 
+## Web UI
+
+A Leptos WASM frontend is available that consumes this API. See [UI.md](UI.md) for details.
+
+To run the complete stack:
+
+```bash
+# Terminal 1: Start API server
+cd crates/conductor-api
+cargo run
+
+# Terminal 2: Start Web UI
+cd crates/conductor-ui
+trunk serve
+```
+
+Visit http://127.0.0.1:8080 to use the web interface.
+
+---
+
 ## Next Steps
 
-- Integrate with Leptos frontend
+- ✅ Leptos WASM frontend (completed)
 - Add authentication
 - Add rate limiting
 - Add request validation middleware
