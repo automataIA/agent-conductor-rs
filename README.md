@@ -34,10 +34,10 @@ The project follows a 5-layer bottom-up architecture:
 - `WorkflowManager`: Template and session management
 - `WorkflowTemplate`: Reusable workflow configurations
 
-### Layer 5: API & UI (Week 5)
-- REST API (Axum)
-- Server-Sent Events for real-time updates
-- Leptos WASM dashboard
+### Layer 5: API & UI ✅ **COMPLETED**
+- REST API (Axum) with full CRUD endpoints
+- Server-Sent Events for real-time workflow monitoring
+- Complete API documentation (API.md)
 
 ## 📦 Crates
 
@@ -140,7 +140,12 @@ cargo test --package conductor-primitives
   - [x] WorkflowTemplate for reusable workflows
   - [x] Multi-session support
   - [x] Examples (fluent_api_demo, workflow_manager_demo)
-- [ ] **Week 5**: Layer 5 - API & Frontend
+- [x] **Week 5**: Layer 5 - API & Frontend
+  - [x] REST API with Axum (handlers for templates, sessions, execution)
+  - [x] Server-Sent Events for real-time monitoring
+  - [x] CORS support
+  - [x] Demo workflow templates (counter, echo, math)
+  - [x] Complete API documentation
 
 ## 🎨 Design Principles
 
