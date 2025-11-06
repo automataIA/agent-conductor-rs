@@ -3,20 +3,20 @@
 use crate::api;
 use leptos::*;
 use leptos_router::*;
-use serde_json::json;
 use std::collections::HashMap;
 
 /// Templates page - list all available workflow templates
 #[component]
 pub fn TemplatesPage() -> impl IntoView {
     let templates = create_resource(|| (), |_| async { api::list_templates().await });
+    let navigate = use_navigate();
 
-    let create_session = create_action(|template_name: &String| {
+    let create_session = create_action(move |template_name: &String| {
         let template_name = template_name.clone();
+        let navigate = navigate.clone();
         async move {
             match api::create_session(template_name).await {
                 Ok(response) => {
-                    let navigate = use_navigate();
                     navigate(&format!("/sessions/{}", response.session_id), Default::default());
                 }
                 Err(e) => {
@@ -139,6 +139,7 @@ pub fn SessionsPage() -> impl IntoView {
 pub fn SessionDetailPage() -> impl IntoView {
     let params = use_params_map();
     let session_id = move || params.get().get("id").cloned().unwrap_or_default();
+    let navigate = use_navigate();
 
     let session = create_resource(
         move || session_id(),
@@ -188,11 +189,11 @@ pub fn SessionDetailPage() -> impl IntoView {
 
     let delete_session = move |_| {
         let id = session_id();
+        let navigate = navigate.clone();
         spawn_local(async move {
             if let Err(e) = api::delete_session(&id).await {
                 logging::error!("Failed to delete session: {}", e);
             } else {
-                let navigate = use_navigate();
                 navigate("/sessions", Default::default());
             }
         });

@@ -7,7 +7,7 @@ use axum::{
     http::StatusCode,
     Json,
 };
-use conductor_builder::{GraphBuilder, WorkflowManager};
+use conductor_builder::WorkflowManager;
 use conductor_primitives::State;
 use serde::{Deserialize, Serialize};
 use std::sync::{Arc, Mutex};
